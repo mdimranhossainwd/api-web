@@ -27,7 +27,7 @@ const categori = async (searchId) => {
     get.data?.forEach(item => {
         const newDIV = document.createElement('div')
         newDIV.innerHTML = `
-        <div class="card w-96 bg-base-100 shadow-xl">
+        <div class="card bg-base-100 shadow-xl">
         <figure>
           <img
             src="${item?.image_url}"
@@ -43,23 +43,25 @@ const categori = async (searchId) => {
           </h2>
 
           <p>
-            Wednesday, August 24, 2022 | Tag cloud Tags: Bidan, EU, Euro,
-            Europe, Joe Biden,
+            ${item?.details?.slice(0,100)}
           </p>
+
+          <span>Total-Views: ${item?.total_view || '0'}</span>
+
           <div class="card-footer flex justify-between">
             <div class="flex">
               <div>
                 <div class="avatar-online">
                   <div class="w-14 rounded-full">
                     <img
-                      src="https://images.unsplash.com/photo-1633332755192-727a05c4013d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8dXNlcnxlbnwwfHwwfHw%3D&w=1000&q=80"
+                      src="${item?.author?.img}"
                       alt=""
                     />
                   </div>
                 </div>
               </div>
               <div>
-                <h6>Jimmy Dane</h6>
+                <h6>${item.author.name}</h6>
                 <small>2022-08-24 17:27:34</small>
               </div>
             </div>
@@ -80,3 +82,4 @@ const categori = async (searchId) => {
 }
 
 loadingData()
+categori("01")
