@@ -1,7 +1,7 @@
 const loadingData = async () => {
     const getData = await fetch('https://openapi.programming-hero.com/api/news/categories')
     const data = await getData.json()
-    const loping = data.data.news_category.slice(0,3);
+    const loping = data.data.news_category;
 
     const tabContainer = document.getElementById('tabs-container')
     
